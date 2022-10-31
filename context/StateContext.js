@@ -3,6 +3,7 @@ import React, {
   useContext,
   useState,
   useLayoutEffect,
+  useEffect,
 } from "react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider, db } from "../lib/FirebaseConfig";
@@ -14,7 +15,7 @@ export const StateContext = ({ children }) => {
   let themes = ["light", "dark", "cyberpunk"];
   const [theme, setTheme] = useState("dark");
   const [user, setUser] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   useLayoutEffect(() => {
     setUser(reactLocalStorage.getObject("user"));
   }, []);
@@ -39,6 +40,10 @@ export const StateContext = ({ children }) => {
           email: user.email,
         });
       })
+      .then(() => {
+        window.location.reload(false);
+
+      })
       .catch((error) => {
         console.error(error.message);
       });
@@ -57,6 +62,8 @@ export const StateContext = ({ children }) => {
         setTheme,
         user,
         clear,
+        loading,
+        setLoading,
       }}
     >
       {children}

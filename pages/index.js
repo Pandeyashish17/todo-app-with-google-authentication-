@@ -1,7 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Navbar from "../components/HOC/Navbar";
 import Login from "../components/Login/Login";
 import Todos from "../components/todos/Todos";
 import { useStateContext } from "../context/StateContext";
@@ -36,7 +35,6 @@ export default function Home() {
   return (
     <>
       <div data-theme={theme} className="">
-        <Navbar />
         {user?.name ? <Todos todos={todos} /> : <Login />}
       </div>
     </>

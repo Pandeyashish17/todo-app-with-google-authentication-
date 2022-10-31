@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import ReactTimeago from "react-timeago";
 import { useStateContext } from "../../context/StateContext";
 import { db } from "../../lib/FirebaseConfig";
+import Loader from "../loader/Loader";
 
 const Todos = ({ todos }) => {
   const { user, theme } = useStateContext();
@@ -63,7 +64,7 @@ const Todos = ({ todos }) => {
         </div>
       ) : (
         <div className="grid place-content-center w-screen h-screen">
-          <h1 className="text-4xl">No Todos..</h1>
+          <Loader />
         </div>
       )}
     </>
