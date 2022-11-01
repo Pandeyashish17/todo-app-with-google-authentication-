@@ -36,7 +36,7 @@ const Todos = ({ todos }) => {
               </tr>
             </thead>
             <tbody>
-              {Todos?.reverse().map((todo, i) => {
+              {Todos?.map((todo, i) => {
                 console.log(todo);
                 return (
                   <tr key={i}>
