@@ -64,7 +64,7 @@ const Todos = ({ todos }) => {
         </div>
       ) : (
         <div className="grid place-content-center w-screen h-screen">
-          <Loader />
+          <Loader />{" "}
         </div>
       )}
     </>

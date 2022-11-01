@@ -17,7 +17,7 @@ const AddTodoComponent = () => {
     date: date,
   });
   const addTodoHandler = async () => {
-    const { todo, email, date, todoDescription } = addTodo;
+    const { todo, email, date, todoDescription,theme } = addTodo;
     if (
       todo.length != 0 ||
       email.length != 0 ||
@@ -34,12 +34,10 @@ const AddTodoComponent = () => {
   return (
     <>
       <div data-theme={theme} className="w-screen h-screen">
-        <section className="bg-cover md:pt-40 pt-28 md:pb-28 pb-14 innerpage-area">
+        <section className="bg-cover md:pt-40 pt-28 md:pb-28 pb-14 ">
           <div className="container mx-auto">
             <div className="text-center page-title">
-              <h1 className="font-bold text-4xl lg:text-7xl text-coolGray-900">
-                Add Todo{" "}
-              </h1>
+              <h1 className="font-bold text-4xl lg:text-7xl ">Add Todo </h1>
             </div>
             <div className="relative text-center banner-box">
               <div className="banner-dot hidden lg:block">
@@ -60,65 +58,67 @@ const AddTodoComponent = () => {
         {loading ? (
           <Loader />
         ) : (
-          <section className="py-10  sm:py-16 lg:py-24">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-              <div className="relative max-w-md mx-auto mt-8 md:mt-16">
-                <div className="overflow-hidden  rounded-md shadow-md">
-                  <div className="px-4 py-6 sm:px-8 sm:py-7">
-                    <div className="space-y-5">
-                      <div>
-                        <label for="" className="text-base font-medium ">
-                          {" "}
-                          todo{" "}
-                        </label>
-                        <div className="mt-2.5 relative ">
-                          <input
-                            type="text"
-                            onChange={(e) =>
-                              setAddTodo({ ...addTodo, todo: e.target.value })
-                            }
-                            placeholder="Todo Name"
-                            className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className="flex items-center justify-between">
+          <div className="w-screen h-screen" data-theme={theme}>
+            <section className="py-10  sm:py-16 lg:py-24 ">
+              <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="relative max-w-md mx-auto mt-8 md:mt-16">
+                  <div className="overflow-hidden  rounded-md shadow-md">
+                    <div className="px-4 py-6 sm:px-8 sm:py-7">
+                      <div className="space-y-5">
+                        <div>
                           <label for="" className="text-base font-medium ">
                             {" "}
-                            Todo Description
+                            todo{" "}
                           </label>
+                          <div className="mt-2.5 relative ">
+                            <input
+                              type="text"
+                              onChange={(e) =>
+                                setAddTodo({ ...addTodo, todo: e.target.value })
+                              }
+                              placeholder="Todo Name"
+                              className="block w-full py-4 pl-10 pr-4 transition-all duration-200  rounded-md focus:outline-none"
+                            />
+                          </div>
                         </div>
-                        <div className="mt-2.5 relative text-gray-400 focus-within:">
-                          <textarea
-                            type="text"
-                            onChange={(e) =>
-                              setAddTodo({
-                                ...addTodo,
-                                todoDescription: e.target.value,
-                              })
-                            }
-                            placeholder="Todo Description"
-                            className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
-                          />
-                        </div>
-                      </div>
 
-                      <div>
-                        <button
-                          className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
-                          onClick={() => addTodoHandler()}
-                        >
-                          Add Todo
-                        </button>
+                        <div>
+                          <div className="flex items-center justify-between">
+                            <label for="" className="text-base font-medium ">
+                              {" "}
+                              Todo Description
+                            </label>
+                          </div>
+                          <div className="mt-2.5 relative  ">
+                            <textarea
+                              type="text"
+                              onChange={(e) =>
+                                setAddTodo({
+                                  ...addTodo,
+                                  todoDescription: e.target.value,
+                                })
+                              }
+                              placeholder="Todo Description"
+                              className="block w-full py-4 pl-10 pr-4 transition-all duration-200  rounded-md focus:outline-none"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <button
+                            className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold transition-all duration-200 border border-transparent rounded-md focus:outline-none focus:bg-blue-700"
+                            onClick={() => addTodoHandler()}
+                          >
+                            Add Todo
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         )}
       </div>
     </>

@@ -10,7 +10,7 @@ const Navbar = () => {
   const logout = () => {
     setLoading(true);
     clear();
-    setLoading(false)
+    setLoading(false);
     window.location.reload(false);
   };
   return (
@@ -67,10 +67,9 @@ const Navbar = () => {
                 class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <button class="justify-between">
-                    Profile
-                    <span class="badge">New</span>
-                  </button>
+                  <Link href="/">
+                    <a className="justify-between">Home</a>
+                  </Link>
                 </li>
 
                 <li>
